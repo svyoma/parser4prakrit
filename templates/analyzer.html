@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prakrit Verb Form Analyzer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600&family=Playfair+Display:wght@400;700&family=Lora:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Prakrit Verb Form Analyzer</h1>
+      <h3>Created by <a href="https://svyoma.github.io/about">svyoma</a></h3>
+    </div>
+  </header>
+  <div style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 12px; margin: 16px auto; max-width: 700px; border-radius: 6px; font-size: 1.1em; text-align: center;">
+   <p> <strong>Warning:</strong> This project is under development. Please proceed with caution.</p>
+  </div>
+  
+  <div class="container">
+    <div class="form-card">
+      <form id="form">
+        <div class="form-group">
+          <label for="verb-form">Enter Prakrit Verb Form (Devanagari or HK):</label>
+          <input type="text" id="verb-form" name="verb_form" required autocomplete="off" spellcheck="false">
+        </div>
+        
+        <button type="submit" id="submit-btn">
+          <span>Analyze Form</span>
+          <div class="loader" id="loader"></div>
+        </button>
+      </form>
+    </div>
+    
+    <div id="result-section" style="display: none;">
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab-button active" data-tab="analysis">Analysis</button>
+          <button class="tab-button" data-tab="details">Details</button>
+        </div>
+      </div>
+      
+      <div class="tools">
+        <button onclick="copyToClipboard()">
+          <i class="fas fa-copy"></i> Copy to Clipboard
+        </button>
+        <button onclick="exportJSON()">
+          <i class="fas fa-download"></i> Export as JSON
+        </button>
+      </div>
+      
+      <div class="tables-wrapper" id="tables">
+        <div class="table-container active" id="table-analysis">
+          <div class="analysis-card">
+            <h3>Verb Analysis</h3>
+            <div id="main-analysis"></div>
+          </div>
+        </div>
+        <div class="table-container" id="table-details">
+          <div class="analysis-card">
+            <h3>Additional Details</h3>
+            <div id="detailed-analysis"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p>Copyright © 2025 <a href="https://svyoma.github.io/about">Vyom A. Shah.</a> All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="static/verb-analyzer.js"></script>
+</body>
+</html>
